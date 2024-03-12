@@ -49,7 +49,7 @@ qoi="RockAq_RockEb_1Myr"
 sens_data_qoi=sens_data2[qoi]
 all_param_names=sens_data1[qoi]['parameter'].tolist()
 for par in all_param_names:
-    self_s1={'S2':sens_data1[qoi].loc[sens_data1[qoi]['parameter'] == 'pBuffer', 'S1'],
+    self_s1={'S2':sens_data1[qoi].loc[sens_data1[qoi]['parameter'] == par, 'S1'],
                 'parameter1':par,
                 'parameter2':par,
                     }
