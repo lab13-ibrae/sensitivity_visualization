@@ -1,0 +1,74 @@
+This is folder with the results of sensitivity analysis of reference crystalline case.
+Case description is provided in the publication of the case authors: 
+https://www.sciencedirect.com/science/article/pii/S0309170822001737
+https://www.osti.gov/biblio/1855018
+
+The data for sensitivity analysis of this case was presented as one of the examples for the Joint Sensitivity Analysis Exercise (JOSA) group.
+The following analysis was carried out by IBRAE.
+Parameters of the investigated model:
+	- pBuffer - Buffer porosity
+	- meanWPrate - Mean of the truncated log-normal distribution on base normalized general corrosion rate (R) 
+	- stdWPrate - The standard deviation of the truncated log-normal distribution
+	- IRF - Instant release fraction
+	- rateUNF - Fractional dissolution rate of spent nuclear fuel
+	- kGlacial - Glacial till permeability
+	- permDRZ - Disturbed rock zone permeability
+	- permBuffer - Buffer permeability
+* The uncertainty in the fracture network description was accounted for using dual-loop sampling.
+It means that 1000 realizations that are available for sensitivity analysis represent combinations of:
+	- 25 unique spatial structures (realizations of stochastically generated discrete fracture network)
+	- 40 realizations of the uncertain parameters were generated for each spatial realization.
+Initial dataset also contained graph characteristics of stochastic realizations, they was not used in the current analysis.
+Quantities of interest of the investigated model:
+	- Peak_Total I129_M - Peak 129I concentration in the aquifer, 
+	- FractionofSpikeinRepository_1My – the fraction of a tracer remaining in the repository at 1 million years, could be used as an indicator of repository retention.
+	- FractionalMassFluxfromRepo_1Myr – the instantaneous fractional loss rate of tracer remaining in the repository at one million years. It is also an indicator of repository retention.
+	- AqEb_RockEb_1Myr – the ratio of two water fluxes at 1 million years: the flux from the aquifer to the east boundary normalized by the flux from the rock to the east boundary.
+	- RockAq_RockEb_1Myr – the ratio of another two water fluxes (upward vs. horizontal flow) at 1 million years:  the rock to the aquifer vs. the rock to the east boundary
+	- Time-series of 129I concentration in the aquifer.
+
+4 global sensitivity analysis methods with different mathematical backgrounds were used: 
+	- correlation method (Spearman rank correlation coefficients) (Helton, 1993),
+	- Sobol’ indices as variance-based method (Saltelli et al., 2008),
+	- moment-independent method PAWN (Pianosi et al., 2015; Pianosi and Wagener, 2018)
+	- Gini feature importance measures of a tree-based approximating metamodel (Breiman, 2001). 
+
+Description of files:
+	- snl_no_graph_spearman_by_qoi.xlsx
+Spearman rank correlation coefficients obtained with scipy library. Each sheet of xlsx file is named after corresponding QoI. Columns SRCC, p_value, parameter.
+
+	- snl_no_graph_s1_st_dakota_by_qoi.xlsx
+Main and total Sobol' indices (obtained with DAKOTA software). Columns: S1, ST, parameter. Each sheet of xlsx file is named after corresponding QoI. 
+
+	- snl_no_graph_s2_dakota_by_qoi.xlsx
+2nd-order Sobol' indices (obtained with DAKOTA software). Columns: S2, parameter1, parameter2. Each sheet of xlsx file is named after corresponding QoI.
+
+	- snl_no_graph_by_realizations_qoi_dakota_s1_st.xlsx	
+Main and total Sobol' indices (obtained with DAKOTA software). Columns: S1, ST, parameter, qoi. Each sheet of xlsx file is named after corresponding realization.
+
+	- snl_129I_time_no_graph_s1_st_s2_dakota.xlsx
+Main, total and (1st sheet: columns S1, ST, timestep, parameter) 2nd-order (2nd sheet: columns S2, timestep, parameter) Sobol' indices (obtained with DAKOTA software). Additional column timestep.
+	- snl_129I_time_no_graph_s1_st_chaospy.xlsx
+Main and total Sobol' indices (obtained with chaospy library). Columns: S1, ST, timestep, parameter. Each sheet of xlsx file is named after corresponding QoI.	
+	- snl_129I_time_no_graph_gini_bootstrap.xlsx
+Bootstrap statistics for Gini importance measure for I-129 concentration time-series. Columns: timestep, N_trial, pBuffer, meanWPrate, stdWPrate, IRF, rateUNF, kGlacial, permDRZ,permBuffer
+
+	- snl_no_graph_pawn_by_qoi.xlsx	
+PAWN indices obtained with SAlib library. Columns: mean, median, parameter. Each sheet of xlsx file is named after corresponding QoI.	
+	- snl_129I_time_no_graph_pawn.xlsx
+PAWN indices obtained with SAlib library. Columns: mean, median, timestep, parameter.
+
+	- snl_no_graph_gini_by_qoi.xlsx
+Gini importance measures obtained with scikit-learn library. Columns: Gini importance, parameter. Each sheet of xlsx file is named after corresponding QoI.		
+	- snl_129I_no_graph_gini_bootstrap_qoi1.xlsx
+Bootstrap statistics for Gini importance measure. Columns: N_trial, pBuffer, meanWPrate, stdWPrate, IRF, rateUNF, kGlacial, permDRZ,permBuffer. For QoI: Peak_TotalI129_M only.
+	- snl_no_graph_gini_shap_qoi1.xlsx
+Gini and SHAP importance measures. Columns: Gini, SHAP, parameter. For QoI: Peak_TotalI129_M only.
+	- snl_no_graph_gini_by_qoi_realizations.xlsx
+Gini importance measures obtained with scikit-learn library. Columns: parameter, 1-25 (realization numbers). Each sheet of xlsx file is named after corresponding QoI.	
+
+
+	- snl_rankings_paper_orig_order.xlsx
+Aggregated results: ranking of all parameters by all methods. 
+	- snl_rankings_sorted.xlsx
+Aggregated results: sorted ranking of all parameters by all methods.
