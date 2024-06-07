@@ -68,7 +68,7 @@ ax.set_xticklabels(labels)
 ax.yaxis.grid(True)
 
 #plot title
-plt.title(f'QoI: {qoi}', y=1, fontweight="bold")
+plt.title(f"Sobol' indices. QoI: {qoi}", y=1, fontweight="bold")
 
 #customize plot legend
 ax.legend( (bar1, bar2), ('Main indices ($S_1$)', 'Total indices ($S_T$)') )

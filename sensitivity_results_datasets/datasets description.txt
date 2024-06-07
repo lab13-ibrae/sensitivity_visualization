@@ -38,28 +38,37 @@ Description of files:
 Spearman rank correlation coefficients obtained with scipy library. Each sheet of xlsx file is named after corresponding QoI. Columns SRCC, p_value, parameter.
 
 	- snl_no_graph_s1_st_dakota_by_qoi.xlsx
-Main and total Sobol' indices (obtained with DAKOTA software). Columns S1, ST, parameter. Each sheet of xlsx file is named after corresponding QoI. 
+Main and total Sobol' indices (obtained with DAKOTA software). Columns: S1, ST, parameter. Each sheet of xlsx file is named after corresponding QoI. 
 
 	- snl_no_graph_s2_dakota_by_qoi.xlsx
-2nd-order Sobol' indices (obtained with DAKOTA software). Columns S2, parameter1, parameter2. Each sheet of xlsx file is named after corresponding QoI.
+2nd-order Sobol' indices (obtained with DAKOTA software). Columns: S2, parameter1, parameter2. Each sheet of xlsx file is named after corresponding QoI.
 
 	- snl_no_graph_by_realizations_qoi_dakota_s1_st.xlsx	
-Main and total Sobol' indices (obtained with DAKOTA software). Columns S1, ST, parameter, qoi. Each sheet of xlsx file is named after corresponding realization.
+Main and total Sobol' indices (obtained with DAKOTA software). Columns: S1, ST, parameter, qoi. Each sheet of xlsx file is named after corresponding realization.
 
 	- snl_129I_time_no_graph_s1_st_s2_dakota.xlsx
 Main, total and (1st sheet: columns S1, ST, timestep, parameter) 2nd-order (2nd sheet: columns S2, timestep, parameter) Sobol' indices (obtained with DAKOTA software). Additional column timestep.
 	- snl_129I_time_no_graph_s1_st_chaospy.xlsx
-Main and total Sobol' indices (obtained with chaospy library). Columns S1, ST, timestep, parameter. Each sheet of xlsx file is named after corresponding QoI.	
+Main and total Sobol' indices (obtained with chaospy library). Columns: S1, ST, timestep, parameter. Each sheet of xlsx file is named after corresponding QoI.	
+	- snl_129I_time_no_graph_gini_bootstrap.xlsx
+Bootstrap statistics for Gini importance measure for I-129 concentration time-series. Columns: timestep, N_trial, pBuffer, meanWPrate, stdWPrate, IRF, rateUNF, kGlacial, permDRZ,permBuffer
 
 	- snl_no_graph_pawn_by_qoi.xlsx	
-PAWN indices obtained with SAlib library. Columns mean, median, parameter. Each sheet of xlsx file is named after corresponding QoI.	
+PAWN indices obtained with SAlib library. Columns: mean, median, parameter. Each sheet of xlsx file is named after corresponding QoI.	
 	- snl_129I_time_no_graph_pawn.xlsx
-PAWN indices obtained with SAlib library. Columns mean, median, timestep, parameter.
+PAWN indices obtained with SAlib library. Columns: mean, median, timestep, parameter.
 
 	- snl_no_graph_gini_by_qoi.xlsx
-Gini importance measures obtained with scikit-learn library. Columns Gini importance, parameter. Each sheet of xlsx file is named after corresponding QoI.		
+Gini importance measures obtained with scikit-learn library. Columns: Gini importance, parameter. Each sheet of xlsx file is named after corresponding QoI.		
+	- snl_129I_no_graph_gini_bootstrap_qoi1.xlsx
+Bootstrap statistics for Gini importance measure. Columns: N_trial, pBuffer, meanWPrate, stdWPrate, IRF, rateUNF, kGlacial, permDRZ,permBuffer. For QoI: Peak_TotalI129_M only.
+	- snl_no_graph_gini_shap_qoi1.xlsx
+Gini and SHAP importance measures. Columns: Gini, SHAP, parameter. For QoI: Peak_TotalI129_M only.
 	- snl_no_graph_gini_by_qoi_realizations.xlsx
-Gini importance measures obtained with scikit-learn library. Columns parameter, 1-25 (realization numbers). Each sheet of xlsx file is named after corresponding QoI.	
+Gini importance measures obtained with scikit-learn library. Columns: parameter, 1-25 (realization numbers). Each sheet of xlsx file is named after corresponding QoI.	
+
 
 	- snl_rankings_paper_orig_order.xlsx
 Aggregated results: ranking of all parameters by all methods. 
+	- snl_rankings_sorted.xlsx
+Aggregated results: sorted ranking of all parameters by all methods.
